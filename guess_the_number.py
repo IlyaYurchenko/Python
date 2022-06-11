@@ -14,17 +14,21 @@ def guess():
 # guess()
 
 def computer_guess():
-    x = int(input("Choose the guessong diapazon\n"))
+    start = 0
+    stop = int(input("Choose the guessong diapazon\n"))
     feedback = ''
-    computer_guess = random.randint(0, x)
     while feedback != 'yes':
-        feedback = input(f"is {computer_guess} correct?\n")
-        if feedback == "no":
-            computer_guess = random.randint(0, x)
-        elif feedback == "yes":
+        computer_guess = random.randint(start, stop)
+        feedback = input(f"is {computer_guess} correct?\n[y]if correct \n[h] if higher than your number \n[l] if lower then your number ").lower()
+        if feedback == "h":
+            stop = computer_guess - 1
+        elif feedback == 'l':
+            start = computer_guess + 1
+        elif feedback == "y":
             print("Got you!")
             break
         else:
             print("ERROR")
+            break
 
 computer_guess()
