@@ -11,4 +11,20 @@ def guess():
         elif user_choise < computer_choise:
             print("Your number is too low. Try again!")
     print(f"You got it! The number is {computer_choise}")
-guess()
+# guess()
+
+def computer_guess():
+    x = int(input("Choose the guessong diapazon\n"))
+    feedback = ''
+    computer_guess = random.randint(0, x)
+    while feedback != 'yes':
+        feedback = input(f"is {computer_guess} correct?\n")
+        if feedback == "no":
+            computer_guess = random.randint(0, x)
+        elif feedback == "yes":
+            print("Got you!")
+            break
+        else:
+            print("ERROR")
+
+computer_guess()
